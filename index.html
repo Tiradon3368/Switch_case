@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>SWITCH CASE</h1>
+        <hr>
+        <form action="" method="post">
+            <label for="">กรอกเลขที่ 1 :</label>
+            <input type="text" class="form-control" name="num1" id="num1">
+
+            <br><br>
+
+            <label for="">กรอกเลขที่ 2 :</label>
+            <input type="text" class="form-control" name="num2" id="num2">
+
+            <br><br>
+
+            <select name="operator" id="operator" class="form-select">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+
+            <br><br>
+
+            <button type="button" class="btn btn-primary" onclick="calculator()">Calculator</button>
+        </form>
+        <h1 id="result"></h1>
+
+        <hr>
+
+        <h1>GARDE</h1>
+        <hr>
+        <form action="" method="post">
+            <label for="">กรอกคะแนน :</label>
+            <input type="text" class="form-control" name="score" id="score">
+
+            <br><br>
+
+            <button type="button" class="btn btn-primary" onclick="showgrade()">showgrade</button>
+        </form>
+        <h1 id="result2"></h1>
+        <hr>
+    </div>
+    
+</body>
+<script>
+
+    function calculator(){
+        var num1  = parseFloat(document.getElementById("num1").value);
+        var num2  = parseFloat(document.getElementById("num2").value);
+        var operator = document.getElementById("operator").value;
+        var result ;
+
+        switch(operator){
+            case "+":
+            result = num1 + num2;
+            break;
+            case "-":
+            result = num1 - num2;
+            break;
+            case "*":
+            result = num1 * num2;
+            break;
+            case "/":
+            result = num1 /  num2;
+            break;
+            default:
+            result = "no operator";
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+    function showgrade(){
+        var score = parseFloat(document.getElementById("score").value);
+        var result2;
+
+        switch(true){
+            case score >=80:
+            result2 = "A";
+            break;
+            case score >=75:
+            result2 = "B+";
+            break;
+            case score >=70:
+            result2 = "B";
+            break;
+            case score >=65:
+            result2 = "C+";
+            break;
+            case score >=60:
+            result2 = "C";
+            break;
+            case score >=55:
+            result2 = "D+";
+            break;
+            case score >=50:
+            result2 = "D";
+            break;
+            case score <=49:
+            result2 = "E";
+            break;
+            default:
+            result = "no grade";
+        }   
+        document.getElementById("result2").innerHTML = result2;
+    }
+   
+</script>
+</html>
